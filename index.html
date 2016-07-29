@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html ng-app="eatModule">
+	<head>
+		<title>What To Eat?</title>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+		<script src="eatjs.js"></script>
+
+		<link rel="stylesheet" href="eatcss.css"/>
+	</head>
+
+	<body ng-app>
+	<div class="appBody" ng-controller="mealFormController">
+		<div class="headers"><h1> Raf & Sarah's Random Meal Picker </h1></div>
+
+		<div>
+			<p class="pagetexts">The purpose of this website is to decide what meal you will eat based on the options you entered.</p>
+		</div>
+		
+		<div class="result">{{ result }}</div>
+
+		<p>Enter your meal options below:</p>
+
+		<div>
+			<label>Meal Name</label>
+			<input id="inputField" class="mealInputField" type="text" ng-model="meal" ng-keypress="checkIfenterKeyWasPressed($event)"/>
+			<input class="btn" type="button" value="Add Meal" ng-click="addMeal()" />
+			<input class="btn" type="button" value="Pick Meal" ng-click="pickMeal()" />
+			<input class="btn" type="button" value="Clear Meals" ng-click="clearMeals()"/>
+			<table>
+				<thead>
+					<tr>
+						<th>Meals</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="meal in meals">
+						<td>{{ meal.name }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+	</body>
+</html>
